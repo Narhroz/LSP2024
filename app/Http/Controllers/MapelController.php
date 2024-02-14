@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Mapel;
+use App\Models\Mapel;
+use App\Models\Mengajar;
+use illuminate\Validation\Rule;
 
 class MapelController extends Controller
 {
@@ -12,7 +14,8 @@ class MapelController extends Controller
      */
     public function index()
     {
-        //
+        $mapel = Mapel::all();
+        return view('mapel.index',compact('mapel'));
     }
 
     /**
@@ -20,7 +23,7 @@ class MapelController extends Controller
      */
     public function create()
     {
-        //
+        return view('mapel.create');
     }
 
     /**
@@ -28,7 +31,12 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data_mapel = $request->validate([
+            'nama_mapel' => ['required','unique:mapels']
+        ]);
+
+        Mapel::create($data_mapel);
+        return redirect('/mapel/index')->with('success','Data Mata Pelajaran Berhasil Ditambah');
     }
 
     /**
@@ -42,24 +50,43 @@ class MapelController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Mapel $mapel)
     {
-        //
+        return view('mapel.edit',[
+            'mapel' => $mapel
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Mapel $mapel)
     {
-        //
+        $data_mapel = $request->validate([
+            'nama_mapel' => ['required',Rule::unique('mapels')->ignore($mapel->id)]
+        ]);
+
+        $mapel->update($data_mapel);
+        if($mapel){
+            return redirect('/mapel/index')->with('success','Data Mata Pelajaran Berhasil Diubah');
+        }else{
+            return $request->all();
+        }
+        
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Mapel $mapel)
     {
-        //
+        $mengajar = Mengajar::where('mapel_id',$mapel->id)->first();
+
+        if($mengajar){
+            return back()->with('error',"$mapel->nama_mapel masih digunakan dalam sistem mengajar");
+        }
+
+        $mapel->delete();
+        return back()->with('success','Data Mata Pelajaran Berhasil Dihapus');
     }
 }

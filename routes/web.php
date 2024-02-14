@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\KelasController;
 use APp\Http\Controllers\MapelController;
 
 
@@ -44,6 +45,14 @@ Route::middleware('CheckUserRole:admin')->group(function(){
         Route::get('/edit/{mapel}','edit');
         Route::post('/update/{mapel}','update');
         Route::get('/destroy/{mapel}','destroy');
+    });
+    Route::controller(KelasController::class)->prefix('kelas')->group(function(){
+        Route::get('/index','index');
+        Route::get('/create','create');
+        Route::post('/store','store');
+        Route::get('/edit/{mapel}','edit');
+        Route::post('/update/{mapel}','update');
+        Route::get('/delete/{mapel}','destroy');
     });
 });
 
