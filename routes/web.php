@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
-use APp\Http\Controllers\MapelController;
+use App\Http\Controllers\MapelController;
+use App\Http\Controllers\SiswaController;
 
 
 
@@ -50,9 +51,17 @@ Route::middleware('CheckUserRole:admin')->group(function(){
         Route::get('/index','index');
         Route::get('/create','create');
         Route::post('/store','store');
-        Route::get('/edit/{mapel}','edit');
-        Route::post('/update/{mapel}','update');
-        Route::get('/delete/{mapel}','destroy');
+        Route::get('/edit/{kelas}','edit');
+        Route::post('/update/{kelas}','update');
+        Route::get('/delete/{kelas}','destroy');
+    });
+    Route::controller(SiswaController::class)->prefix('siswa')->group(function(){
+        Route::get('/index','index');
+        Route::get('/create','create');
+        Route::post('/store','store');
+        Route::get('/edit/{siswa}','edit');
+        Route::post('/update/{siswa}','update');
+        Route::get('/delete/{siswa}','destroy');
     });
 });
 
