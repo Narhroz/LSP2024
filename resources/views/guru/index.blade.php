@@ -34,7 +34,7 @@
                             <td>{{ $g->password }}</td>
                             <td style="text-align: center">
                                 <a href="/guru/edit/{{ $g->id }}" class="button-warning">EDIT</a>
-                                <a href="/guru/destroy{{ $g->id }}" onclick="return confirm('Yakin Hapus?')" class="button-danger">HAPUS</a>
+                                <a href="/guru/destroy/{{ $g->id }}" onclick="return confirm('Yakin Hapus?')" class="button-danger">HAPUS</a>
                             </td>
                         </tr>
                     @endforeach

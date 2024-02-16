@@ -84,9 +84,9 @@ class MapelController extends Controller
 
         if($mengajar){
             return back()->with('error',"$mapel->nama_mapel masih digunakan dalam sistem mengajar");
+        }else{
+            $mapel->delete();
+            return back()->with('success','Data Mata Pelajaran Berhasil Dihapus');
         }
-
-        $mapel->delete();
-        return back()->with('success','Data Mata Pelajaran Berhasil Dihapus');
     }
 }

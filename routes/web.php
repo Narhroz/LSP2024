@@ -6,6 +6,7 @@ use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\MengajarController;
 
 
 
@@ -62,6 +63,14 @@ Route::middleware('CheckUserRole:admin')->group(function(){
         Route::get('/edit/{siswa}','edit');
         Route::post('/update/{siswa}','update');
         Route::get('/delete/{siswa}','destroy');
+    });
+    Route::controller(MengajarController::class)->prefix('mengajar')->group(function(){
+        Route::get('/index','index');
+        Route::get('/create','create');
+        Route::post('/store','store');
+        Route::get('/edit/{mengajar}','edit');
+        Route::post('/update/{mengajar}','update');
+        Route::get('/delete/{mengajar}','destroy');
     });
 });
 

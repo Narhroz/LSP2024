@@ -46,7 +46,7 @@ class KelasController extends Controller
             return back()->with('error','Data Kelas Yang Dimasukan Sudah Ada');
         }else{
             $kelas->save();
-            return redirect('/kelas/index')->with('success','Data Berhasil Ditambah');
+            return redirect('/kelas/index')->with('success','Data Kelas Berhasil Ditambah');
         }
     }
 
@@ -91,7 +91,7 @@ class KelasController extends Controller
             }
         }
         $kelas->update($data_kelas);
-        return redirect('/kelas/index')->with('success','Data Berhasil Diubah');
+        return redirect('/kelas/index')->with('success','Data Kelas Berhasil Diubah');
     }
 
     /**
@@ -112,6 +112,6 @@ class KelasController extends Controller
         }
 
         $kelas->delete();
-        return redirect('/kelas/index')->with('success','Data Berhasil Dihapus');
+        return redirect('/kelas/index')->with('success','Data Kelas Berhasil Dihapus');
     }
 }

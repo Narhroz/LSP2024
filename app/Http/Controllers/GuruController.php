@@ -91,10 +91,14 @@ class GuruController extends Controller
 
         if($mengajar){
             return back()->with('error',"$guru->nama_guru masih digunakan di menu mengajar");
+        }else{
+            $guru->delete();
+            return back()->with('success','Data Guru Berhasil Dihapus');
         }
 
-        $guru->delete();
-
-        return back()->with('success','Data berhasil dihapus');
+        // $delete = Guru::where('id', $guru)->delete();
+        // if($delete){
+        //     return redirect('/guru/index');
+        // }
     }
 }
