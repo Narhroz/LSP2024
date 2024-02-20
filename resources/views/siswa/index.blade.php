@@ -6,10 +6,10 @@
             <h2>LIST DATA SISWA</h2>
             <a href="/siswa/create" class="button-primary">TAMBAH DATA</a>
             @if (session('success'))
-                <div class="alert alert-success"><span class="closebtn" id="closebtn">&times;</span>{{ session('success') }}</div>
+                <div class="alert alert-success"><span class="closebtn" id="closeBtn">&times;</span>{{ session('success') }}</div>
             @endif
             @if (session('error'))
-                <div class="alert alert-danger"><span class="closebtn" id="closebtn">&times;</span>{{ session('error') }}</div>
+                <div class="alert alert-danger"><span class="closebtn" id="closeBtn">&times;</span>{{ session('error') }}</div>
             @endif
             <table class="table-data">
                 <thead>

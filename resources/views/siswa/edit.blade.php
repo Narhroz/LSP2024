@@ -38,7 +38,7 @@
             </select>
 
             <label for="password">Password</label>
-            <input type="password" id="password" value="{{ $siswa->password }}">
+            <input type="password" name="password" id="password" value="{{ $siswa->password }}">
 
             <button class="button-submit" type="submit">Ubah</button>
         </form>

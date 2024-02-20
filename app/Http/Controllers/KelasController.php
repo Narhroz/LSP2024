@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Kelas;
 use App\Models\Siswa;
 use App\Models\Mengajar;
-use illuminate\Validation\Rule;
+use Illuminate\Validation\Rule;
 
 class KelasController extends Controller
 {

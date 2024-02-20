@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mapel;
 use App\Models\Mengajar;
-use illuminate\Validation\Rule;
+use Illuminate\Validation\Rule;
 
 class MapelController extends Controller
 {

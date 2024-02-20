@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Kelas;
 use App\Models\Nilai;
 use App\Models\Siswa;
-use illuminate\Validation\Rule;
+use Illuminate\Validation\Rule;
 
 class SiswaController extends Controller
 {

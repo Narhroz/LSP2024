@@ -38,7 +38,7 @@ class MengajarController extends Controller
         $data_mengajar = $request->validate([
            'guru_id' => ['required'],
            'mapel_id' => ['required'],
-           'kelas' => ['required'],
+           'kelas_id' => ['required'],
         ]);
 
         $mengajar = Mengajar::firstOrNew($data_mengajar);
