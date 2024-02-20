@@ -91,7 +91,11 @@ class KelasController extends Controller
             }
         }
         $kelas->update($data_kelas);
-        return redirect('/kelas/index')->with('success','Data Kelas Berhasil Diubah');
+        if($kelas){
+            return redirect('/kelas/index')->with('success','Data Kelas Berhasil Diubah');
+        }else{
+            return $request->all();
+        }
     }
 
     /**

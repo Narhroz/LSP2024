@@ -71,8 +71,7 @@ class MapelController extends Controller
             return redirect('/mapel/index')->with('success','Data Mata Pelajaran Berhasil Diubah');
         }else{
             return $request->all();
-        }
-        
+        } 
     }
 
     /**
